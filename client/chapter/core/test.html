@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Size Control</title>
+    <style>
+      #myText {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="myText">Hello, World!</h1>
+    <button onclick="increaseFontSize('#myText', 'hello')">
+      Increase Font Size
+    </button>
+    <button onclick="decreaseFontSize('#myText', 2)">Decrease Font Size</button>
+    <script>
+      // function increaseFontSize(elementId, increment) {
+      //   const element = document.getElementById(elementId);
+      //   if (element) {
+      //     const style = window.getComputedStyle(element);
+      //     const currentFontSize = parseFloat(style.fontSize);
+      //     element.style.fontSize = currentFontSize + increment + 'px';
+      //   }
+      // }
+
+      // function increaseFontSize(elementId, increment) {
+      //   if (typeof elementId === 'string')
+      //     elementId = document.querySelector(elementId);
+
+      //   if (typeof increment !== 'number')
+      //     throw new Error(
+      //       'setStyle 함수의 두 번째 인수는 문자 타입이어야 합니다.'
+      //     );
+
+      //   const currentFontSize = parseFloat(
+      //     getComputedStyle(elementId).fontSize
+      //   );
+      //   const newFontSize = currentFontSize + increment + 'px';
+      //   elementId.style.fontSize = newFontSize;
+      // }
+
+      function increaseFontSize(elementId, increment) {
+        if (typeof elementId === 'string')
+          elementId = document.querySelector(elementId);
+
+        if (typeof increment !== 'number')
+          throw new Error(
+            'increaseFontSize 함수의 두 번째 인수는 숫자 타입이어야 합니다.'
+          );
+
+        const currentFontSize = parseFloat(
+          getComputedStyle(elementId).fontSize
+        );
+        const newFontSize = currentFontSize + increment + 'px';
+        elementId.style.fontSize = newFontSize;
+      }
+
+      // function increaseFontSize(elementId, increment) {         const elem = document.getElementById(elementId);         const currFontSize = getComputedStyle(elem).fontSize;          elem.style.fontSize = parseInt(currFontSize, 10) + increment + "px";       }        function decreaseFontSize(elementId, decrement) {         const elem = document.getElementById(elementId);         const currFontSize = getComputedStyle(elem).fontSize;          elem.style.fontSize = parseInt(currFontSize, 10) - decrement + "px";       }
+
+      // function decreaseFontSize(elementId, decrement) {
+      //   const element = document.getElementById(elementId);
+      //   if (element) {
+      //     const style = window.getComputedStyle(element);
+      //     const currentFontSize = parseFloat(style.fontSize);
+      //     element.style.fontSize = currentFontSize - decrement + 'px';
+      //   }
+      // }
+    </script>
+  </body>
+</html>

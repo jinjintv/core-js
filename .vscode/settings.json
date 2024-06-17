@@ -20,5 +20,8 @@
     // "editor.formatOnSave": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.autoSave": "afterDelay",
+  "editor.wordWrap": "on"
 }
