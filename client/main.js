@@ -1,14 +1,37 @@
+
+
+
+
+
 class UserCard extends HTMLElement{
     constructor(){
-        super();
-        this.attachShadow({mode:'open'});
-        this.shadowRoot.innerHTML = `
-        <div>name: 진진진</div>
-        <slot></slot>
-        <slot></slot>
-        <slot></slot>
-        `
-    }
-}
+      super();
+      this.attachShadow({mode:'open'});
+      this.shadowRoot.innerHTML = `
+        <button type="button">btn</button>
+      `
 
-customElements.define('user-card',UserCard);
+      this.button = this.shadowRoot.querySelector('button');
+  
+    }
+
+    connectedCallback(){
+        this.button.addEventListener('click',this.clickMe.bind(this));
+    
+      }
+      
+    
+      clickMe(){
+        console.log(this);
+      }
+    
+  }
+
+  customElements.define('user-card',UserCard);
+  
+  
+  
+  
+  
+  
+  
