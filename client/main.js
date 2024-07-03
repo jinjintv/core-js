@@ -1,15 +1,14 @@
+class UserCard extends HTMLElement{
+    constructor(){
+        super();
+        this.attachShadow({mode:'open'});
+        this.shadowRoot.innerHTML = `
+        <div>name: 진진진</div>
+        <slot></slot>
+        <slot></slot>
+        <slot></slot>
+        `
+    }
+}
 
-const template = document.createElement('template');
-
-template.innerHTML = `
-<div>bye</div>
-<div>javascript</div>
-`
-
-
-const temp = document.querySelector('#temp');
-const app = document.querySelector('#app');
-
-const clone = template.content.cloneNode(true);
-
-app.appendChild(clone);
+customElements.define('user-card',UserCard);
